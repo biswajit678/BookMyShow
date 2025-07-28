@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(120deg, #ba4947 0%, #9e5eb0 100%);
+  position: relative;
+}
+
+body::before {
+  content: none;
+}
+
+#root > * {
+  position: relative;
+  z-index: 1;
+}
