@@ -8,17 +8,18 @@ function Login() {
   const navigate = useNavigate();
 
   // Check if user is already authenticated
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
-    if (isAuthenticated) {
-      navigate('/movie');
-    }
-  }, [navigate]);
+    const authStatus = localStorage.getItem('isAuthenticated');
+    setIsAuthenticated(!!authStatus);
+  }, []);
 
   const handleLogin = async () => {
     setError('');
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const res = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -46,6 +47,19 @@ function Login() {
       <input className='auth-input' placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
       <button className='auth-button' onClick={handleLogin}>Login</button>
       <p>Dont have an account? <Link to='/signup'>Signup</Link></p>
+      
+      {isAuthenticated && (
+        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+          <p>Already logged in as: <strong>{localStorage.getItem('username')}</strong></p>
+          <button 
+            className='auth-button' 
+            onClick={() => navigate('/movie')}
+            style={{ backgroundColor: '#4CAF50', marginTop: '10px' }}
+          >
+            Continue to Movies
+          </button>
+        </div>
+      )}
     </div>
   );
 }
