@@ -11,7 +11,8 @@ router.post('/signup', async (req, res) => {
         await user.save()
         res.send({ message: 'Signup Successful' })
     } catch (err) {
-        res.status(500).send({ message: 'Error signing up' })
+        console.log('Signup error:', err.message);
+        res.status(500).send({ message: 'Error signing up: ' + err.message })
     }
 })
 
@@ -25,7 +26,8 @@ router.post('/login', async (req, res) => {
             res.status(401).send({ message: 'Invalid Credentials' })
         }
     } catch (err) {
-        res.status(500).send({ message: 'Error logging in' })
+        console.log('Login error:', err.message);
+        res.status(500).send({ message: 'Error logging in: ' + err.message })
     }
 })
 router.get('/test',(req,res)=>{
