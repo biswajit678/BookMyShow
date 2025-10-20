@@ -11,6 +11,8 @@ import { Loader } from 'lucide-react'
 import { Toaster } from 'react-hot-toast'
 import MovieDetails from './pages/MovieDetails'
 import SelectTheater from './pages/SelectTheater'
+import SeatBooking from './pages/SeatBooking'
+import WatchWithMe from './pages/WatchWithMe'
 
 const App = () => {
   const {authUser,checkAuth,isCheckingAuth}=useAuthStore()
@@ -38,7 +40,9 @@ const App = () => {
         <Route path="/profile" element={authUser ? <ProfilePage/> : <Navigate to='/login'/>}/>
         <Route path='/movie/:id' element={authUser ? <MovieDetails/> :<Navigate to='/login'/>}/>
         <Route path='/theater/:movieId' element={authUser ? <SelectTheater/> : <Navigate to='/login'/>}/>
-      
+        <Route path='/seats/:theaterId' element={authUser ? <SeatBooking/> : <Navigate to='/login'/>}/>
+        <Route path='/buddy' element={authUser ? <WatchWithMe/> : <Navigate to='/login'/>}/>
+
       </Routes>
       </div>
       <Toaster/>
