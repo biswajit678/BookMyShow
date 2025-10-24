@@ -13,7 +13,7 @@ import path from 'path'
 dotenv.config()
 const app=express()
 
-const PORT= process.env.PORT
+const PORT= process.env.PORT || 3000;
 const __dirname = path.resolve()
 
 app.use(express.json())
@@ -31,12 +31,11 @@ app.use("/api/show",showRoutes)
 app.use("/api/seat", seatRoutes);
 
 if (process.env.NODE_ENV === "production") {
-   app.use(express.static(path.join(__dirname, "../frontend/dist")));
+    app.use(express.static(path.join(__dirname, "dist")));
 
-   app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-});
-
+    app.get("/*", (_, res) => {
+        res.sendFile(path.join(__dirname, "dist", "index.html"));
+    });
 }
 
 connectDB()
