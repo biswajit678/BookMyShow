@@ -7,30 +7,40 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Node modules
-node_modules/
+node_modules
+dist
+dist-ssr
+*.local
 
-# Build outputs
-dist/
-dist-ssr/
-build/
-
-# Local environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Editor settings
+# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Misc
+# dependencies
+node_modules/
+
+# production build
+build/
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# misc
 .DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+.env
