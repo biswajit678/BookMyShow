@@ -4,7 +4,7 @@ import authRoutes from './routes/authRoutes.js'
 import movieRoutes from './routes/movieRoutes.js'
 import theaterRoutes from './routes/theaterRoutes.js'
 import showRoutes from './routes/showRoutes.js'
-import seatRoutes from './routes/seatRoutes.js'
+import seatRoutes from './routes/seatRoutes.js' 
 import { connectDB } from "./lib/db.js"
 import cookieParser from 'cookie-parser'
 import cors from 'cors' 
@@ -33,7 +33,7 @@ app.use("/api/seat", seatRoutes);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "dist")));
 
-    app.get("/*", (_, res) => {
+    app.get("*", (_, res) => {
         res.sendFile(path.join(__dirname, "dist", "index.html"));
     });
 }
