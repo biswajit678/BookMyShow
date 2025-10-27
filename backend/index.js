@@ -8,13 +8,11 @@ import seatRoutes from './routes/seatRoutes.js'
 import { connectDB } from "./lib/db.js"
 import cookieParser from 'cookie-parser'
 import cors from 'cors' 
-import path from 'path'
 
 dotenv.config()
 const app=express()
 
 const PORT= process.env.PORT || 3000;
-const __dirname = path.resolve()
 
 app.use(express.json())
 
@@ -29,14 +27,6 @@ app.use("/api/movie",movieRoutes)
 app.use("/api/theater",theaterRoutes)
 app.use("/api/show",showRoutes)
 app.use("/api/seat", seatRoutes);
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "dist")));
-
-    app.get("*", (_, res) => {
-        res.sendFile(path.join(__dirname, "dist", "index.html"));
-    });
-}
 
 connectDB()
 app.listen(PORT,()=>{
