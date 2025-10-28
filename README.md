@@ -26,7 +26,7 @@ Others: Cookies, dotenv, Postman (for admin routes)
 
 
 [Homepage]<img width="1915" height="966" alt="Screenshot 2025-10-28 153915" src="https://github.com/user-attachments/assets/9f238049-70b9-4d28-92db-ef8eb75d637e" />
-[Movie Detaild]<img width="1919" height="959" alt="Screenshot 2025-10-28 154210" src="https://github.com/user-attachments/assets/396cf86e-06a4-4b54-81c7-a3a7e052b43f" />
+[Movie Details]<img width="1919" height="959" alt="Screenshot 2025-10-28 154210" src="https://github.com/user-attachments/assets/396cf86e-06a4-4b54-81c7-a3a7e052b43f" />
 [Theater&Shows Time]<img width="1919" height="960" alt="Screenshot 2025-10-28 154232" src="https://github.com/user-attachments/assets/fc58890b-1b84-4fab-ae0c-a3b25dd364aa" />
 [Seat Layout]<img width="1919" height="966" alt="Screenshot 2025-10-28 154257" src="https://github.com/user-attachments/assets/4d8e5a2f-3c50-47bb-98a2-1dceb5bb37c9" />
 
